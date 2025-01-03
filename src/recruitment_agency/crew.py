@@ -3,7 +3,7 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import PDFSearchTool
 from crewai_tools import SerperDevTool
 from recruitment_agency.tools.custom_tool import PostToAPITool
-
+from recruitment_agency.utils import Candidate
 # If you want to run a snippet of code before or after the crew starts, 
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -47,7 +47,8 @@ class RecruitmentAgency():
 	@task
 	def data_extraction_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['data_extraction_task']
+			config=self.tasks_config['data_extraction_task'],
+			output_pydantic=Candidate
 		)
 	
 	@task
@@ -67,5 +68,6 @@ class RecruitmentAgency():
 			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
 			verbose=True,
+			output_log_file="log.txt"
 			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
 		)
