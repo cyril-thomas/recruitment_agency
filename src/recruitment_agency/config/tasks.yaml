@@ -1,0 +1,29 @@
+data_extraction_task:
+  description: >
+    Please analyze this {PDF_filename} and extract the following information in a structured format:
+    1. Full Name of the Candidate
+    2. Educational Qualifications (include all degrees/certifications)
+    3. Educational Institutions attended
+
+    For each educational entry, please include:
+    - Degree/Certification name
+    - Institution name
+    - Year of completion (if available)
+    - Field of study/Major
+    - Search the internet to find the address of the institution
+    - Find alternate names of the institution
+  expected_output: >
+    A list of candidates and the information collected.
+  agent: recruitment_data_analyst
+
+
+rest_development_task:
+  description: >
+    Review the data set you got and build an API call to input candidate into a software system.
+  expected_output: >
+    Perform the following objectives:
+    - Build a data dictionary with the data provided on the candidates.
+    - Make an API call with the post_to_api tool.
+    - Ensure you recieve a 200
+  agent: sr_python_dev
+
