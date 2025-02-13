@@ -34,6 +34,8 @@ $ crewai run
 ```
 
 This command initializes the recruitment_agency Crew, assembling the agents and assigning them tasks as defined in your configuration.
+
+
 **Ensure you add resumes with .pdf extension to the /files folder**
 As a pre-requist, have a server running on `localhost:8000/users`
 
